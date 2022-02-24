@@ -21,8 +21,6 @@ import com.yc.video.kernel.factory.PlayerFactory;
 import com.yc.video.kernel.utils.PlayerConstant;
 import com.yc.video.kernel.utils.PlayerFactoryUtils;
 import com.yc.video.kernel.utils.VideoLogUtils;
-import com.yc.video.ui.cast.OnDiscoveryManagerListener;
-import com.yc.video.ui.cast.PlayerCastComponent;
 import com.yc.ycvideoplayer.BuriedPointEventImpl;
 import com.yc.ycvideoplayer.CastDeviceListDialog;
 import com.yc.ycvideoplayer.ConstantVideo;
@@ -37,6 +35,8 @@ import com.yc.video.player.VideoPlayerBuilder;
 import com.yc.video.player.VideoViewManager;
 import com.yc.video.ui.view.BasisVideoController;
 import com.yc.video.ui.view.CustomErrorView;
+import com.yc.ycvideoplayer.cast.OnDiscoveryManagerListener;
+import com.yc.ycvideoplayer.cast.PlayerCastComponent;
 
 import java.io.File;
 

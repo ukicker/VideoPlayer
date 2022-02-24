@@ -762,21 +762,6 @@ public abstract class BaseVideoController extends FrameLayout implements InterVi
     }
 
 
-    @Override
-    public void setCast(InterControlView castInterControlView, boolean isCast) {
-        for (Map.Entry<InterControlView, Boolean> next : mControlComponents.entrySet()) {
-            InterControlView component = next.getKey();
-            if (isCast) {
-                setGesture(false);
-                if (component!=castInterControlView){
-                    component.getView().setVisibility(View.GONE);
-                }
-            } else {
-                setGesture(true);
-               setPlayerState(ConstantKeys.PlayMode.MODE_NORMAL);
-            }
-        }
-    }
 
 
     //------------------------ end handle event change ------------------------//

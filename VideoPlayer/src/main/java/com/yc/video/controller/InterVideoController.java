@@ -55,12 +55,6 @@ public interface InterVideoController {
      */
     void setGesture(boolean enable);
 
-    /**
-     * 是否投屏
-     * @param castInterControlView
-     * @param isCast
-     */
-    void setCast(InterControlView castInterControlView, boolean isCast);
 
 
 

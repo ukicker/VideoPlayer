@@ -1,4 +1,4 @@
-package com.yc.video.ui.cast;
+package com.yc.ycvideoplayer.cast;
 
 import android.content.Context;
 import android.util.AttributeSet;

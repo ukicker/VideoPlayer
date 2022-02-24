@@ -265,10 +265,6 @@ public class ControlWrapper implements InterVideoPlayer, InterVideoController {
         mController.setGesture(enable);
     }
 
-    @Override
-    public void setCast(InterControlView castInterControlView, boolean isCast) {
-        mController.setCast(castInterControlView,isCast);
-    }
 
     @Override
     public boolean isLocked() {

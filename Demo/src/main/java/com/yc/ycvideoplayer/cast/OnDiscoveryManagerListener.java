@@ -1,8 +1,7 @@
-package com.yc.video.ui.cast;
+package com.yc.ycvideoplayer.cast;
 
 import com.connectsdk.device.ConnectableDevice;
 import com.connectsdk.discovery.DiscoveryManager;
-import com.connectsdk.service.command.ServiceCommandError;
 
 /**
  * @PackageName : com.yc.video.ui.cast

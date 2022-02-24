@@ -1,10 +1,9 @@
-package com.yc.video.ui.cast;
+package com.yc.ycvideoplayer.cast;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,15 +11,15 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 
-import com.connectsdk.external.MediaType;
+import com.connectsdk.device.ConnectableDevice;
+import com.connectsdk.discovery.DiscoveryManager;
 import com.connectsdk.external.CastLogUtils;
 import com.connectsdk.external.CastManager;
 import com.connectsdk.external.CastPlayerListener;
 import com.connectsdk.external.ConnectListener;
 import com.connectsdk.external.CustomCastBean;
 import com.connectsdk.external.DiscoveryResultListener;
-import com.connectsdk.device.ConnectableDevice;
-import com.connectsdk.discovery.DiscoveryManager;
+import com.connectsdk.external.MediaType;
 import com.connectsdk.service.DeviceService;
 import com.connectsdk.service.capability.MediaControl;
 import com.connectsdk.service.command.ServiceCommandError;
@@ -269,14 +268,12 @@ public class PlayerCastComponent extends FrameLayout implements InterControlView
     @Override
     public void onDeviceReady(ConnectableDevice device) {
         VideoLogUtils.d("onDeviceReady:" + device.getFriendlyName());
-        mControlWrapper.setCast(this, true);
         mDiscoveryManagerListener.onSelectSuccess();
         castControlView = new PlayerCastControlView(getContext());
         castControlView.setOnCompleteListener(() -> {
             mCastManager.disconnect();
             removeView(castControlView);
             mControlWrapper.start();
-            mControlWrapper.setCast(this, false);
             mControlWrapper.show();
             castControlView = null;
         });

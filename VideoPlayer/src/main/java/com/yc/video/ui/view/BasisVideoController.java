@@ -377,10 +377,6 @@ public class BasisVideoController extends GestureVideoController implements View
         setCanSlide(enable);
     }
 
-    @Override
-    public void setCast(InterControlView castInterControlView, boolean isCast) {
-        super.setCast(castInterControlView, isCast);
-    }
 
     @Override
     public void destroy() {
