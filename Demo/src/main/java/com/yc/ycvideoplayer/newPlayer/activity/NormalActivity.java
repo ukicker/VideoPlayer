@@ -119,7 +119,7 @@ public class NormalActivity extends AppCompatActivity implements View.OnClickLis
         }
 //        url = "rtmp://pili-live-rtmp.ukicker.cn/ukicker/5062456095a6e09d88197a5e73a33388?sign=ab74f4ae63817eb48643e8ca8a4cc9c8&t=61f127e5";
 
-        url = "rtmp://pili-live-rtmp.ukicker.cn/ukicker/268ba1eb0cf9b06241037d8686d80944?sign=ebbbe342a77cce62f35d7a64168bb34b&t=620e05b6";
+//        url = "rtmp://pili-live-rtmp.ukicker.cn/ukicker/268ba1eb0cf9b06241037d8686d80944?sign=ebbbe342a77cce62f35d7a64168bb34b&t=620e05b6";
         String filePath = Environment.getExternalStorageDirectory() + File.separator +  "Download"+ File.separator+"2.mp4";
         File file = new File(filePath);
 
