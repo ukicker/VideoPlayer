@@ -51,17 +51,6 @@ public interface BuriedPointEvent {
      */
     void onError(String url , boolean isNetError);
 
-    /**
-     * 点击了视频广告
-     * @param url                       视频url
-     */
-    void clickAd(String url);
-
-    /**
-     * 视频试看点击
-     * @param url                       视频url
-     */
-    void playerAndProved(String url);
 
 
     /**
