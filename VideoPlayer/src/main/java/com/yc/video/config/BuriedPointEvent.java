@@ -85,56 +85,6 @@ public interface BuriedPointEvent {
      */
     void videoToMedia(String url);
 
-
-
-
-
-
-    /**
-     * 剪辑
-     */
-    default void onCut(){}
-
-    /**
-     * 剪辑帮助
-     */
-
-    default void onClipHelp(){}
-    /**
-     * 剪辑分享
-     */
-
-    default void onClipShare(){}
-
-    /**
-     * 剪辑完成
-     */
-    default void onClipComplete(){}
-
-    /**
-     * 截图
-     */
-    default void onScreenShot(){}
-
-    /**
-     * 截图分享
-     */
-    default void onScreenShotShare(){}
-
-    /**
-     * 原有视频剪辑
-     */
-
-    default void onClip(){}
-
-
-    /**
-     * 投屏
-     */
-
-    default void onCast(String url){}
-
-
     /**
      * 自定义埋点事件
      * @param url
