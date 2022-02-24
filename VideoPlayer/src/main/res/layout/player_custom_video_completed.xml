@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/complete_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/player_mask_top"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="12dp">
+
+        <ImageView
+            android:id="@+id/iv_stop_fullscreen"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@mipmap/player_ic_back"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_replay"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:drawablePadding="0dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/player_replay"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:drawableEndCompat="@mipmap/player_ic_replay" />
+
+
+</FrameLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="dialog_change_clarity" parent="@style/Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@color/player_dialog_bg</item>
+    </style>
+
+
+    <style name="FloatWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_window_enter</item>
+        <item name="android:windowExitAnimation">@anim/anim_window_exit</item>
+    </style>
+    <style name="player_dot_seek_bar_style" tools:ignore="ResourceName">
+        <item name="android:maxHeight">2dp</item>
+        <item name="android:minHeight">2dp</item>
+        <item name="android:progressDrawable">@drawable/progress_bar_style</item>
+        <item name="android:thumb">@mipmap/player_ic_thumb</item>
+        <item name="android:thumbOffset">0dp</item>
+    </style>
+
+</resources>

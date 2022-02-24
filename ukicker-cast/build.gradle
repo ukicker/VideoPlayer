@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "2.0.1"
+        useLibrary 'org.apache.http.legacy'
+
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE'
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = [
+                    'src'
+            ]
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        androidTest {
+            java.srcDirs = [
+                    'core/test/src',
+            ]
+        }
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled = true
+        }
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${project.name}-${variant.name}-${defaultConfig.versionName}.aar"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation files('libs/Java-WebSocket-1.3.7.jar')
+    implementation files('libs/javax.jmdns_3.4.1-patch2.jar')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.mediarouter:mediarouter:1.2.5'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    implementation 'com.googlecode.plist:dd-plist:1.23'
+    implementation 'com.nimbusds:srp6a-android:2.0.2'
+    implementation 'net.i2p.crypto:eddsa:0.3.0'
+
+    testImplementation 'org.apache.maven:maven-ant-tasks:2.1.3'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+    testImplementation 'org.mockito:mockito-all:1.10.19'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.2'
+    testImplementation 'xmlunit:xmlunit:1.4'
+}

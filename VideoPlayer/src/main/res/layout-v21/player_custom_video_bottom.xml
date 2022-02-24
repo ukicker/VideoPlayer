@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/player_mask_bottom"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/ll_portrait_container"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="bottom"
+            android:gravity="center_vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_portrait_play"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/selector_bot_play_button" />
+
+            <TextView
+                android:id="@+id/tv_portrait_position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:minHeight="14dp"
+                android:text="@string/player_default_time"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <com.yc.video.ui.view.PointSeekBar
+                android:id="@+id/portrait_progress"
+                style="@style/player_dot_seek_bar_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_weight="1.0"
+                android:max="100"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:progress="0"
+                android:secondaryProgress="0"
+                android:splitTrack="false" />
+
+            <TextView
+                android:id="@+id/tv_portrait_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="13dp"
+                android:includeFontPadding="false"
+                android:text="@string/player_default_time"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/iv_portrait_full"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/player_ic_full" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_landscape_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_landscape_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:minHeight="14dp"
+                    android:text="@string/player_default_time"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+                <com.yc.video.ui.view.PointSeekBar
+                    android:id="@+id/landscape_progress"
+                    style="@style/player_dot_seek_bar_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_weight="1.0"
+                    android:max="100"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:progress="0"
+                    android:secondaryProgress="0"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_landscape_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="13dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/player_default_time"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tv_landscape_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_landscape_play"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/selector_bot_play_button" />
+
+
+                <ImageView
+                    android:id="@+id/iv_landscape_tiny"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="25dp"
+                    android:layout_toStartOf="@+id/tv_landscape_speed"
+                    android:src="@mipmap/player_ic_tiny"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_landscape_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@string/player_speed_play"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--底部进度条-->
+    <SeekBar
+        android:id="@+id/pb_bottom_progress"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="bottom"
+        android:duplicateParentState="false"
+        android:max="100"
+        android:minHeight="2dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_bar_style"
+        android:secondaryProgress="0"
+        android:splitTrack="false"
+        android:thumb="@null"
+        android:visibility="gone" />
+</FrameLayout>

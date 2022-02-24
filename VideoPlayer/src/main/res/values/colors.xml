@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="player_dialog_bg">#bc000000</color>
+    <color name="player_alpha_25_black">#40000000</color>
+    <color name="player_redTab">#D03E49</color>
+
+    <color name="player_theme_color">#FF374A</color>
+    <color name="player_theme_color_red">#FF374A</color>
+
+</resources>

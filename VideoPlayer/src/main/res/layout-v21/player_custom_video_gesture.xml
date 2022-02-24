@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_center_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_speed_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/player_custom_error"
+        android:drawablePadding="0dp"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingLeft="15dp"
+        android:paddingTop="7dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:drawableStartCompat="@mipmap/player_ic_speed_play" />
+
+
+    <TextView
+        android:id="@+id/tv_seek_to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="13dp"
+        android:background="@drawable/player_custom_error"
+        android:gravity="center_vertical"
+        android:includeFontPadding="false"
+        android:paddingLeft="15dp"
+        android:paddingTop="7dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="7dp"
+        android:textColor="@color/player_theme_color_red"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_change_percent"
+        android:layout_width="157dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/player_custom_error"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="14sp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_change_percent"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+
+        <SeekBar
+            android:id="@+id/seek_change_percent"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:max="100"
+            android:minHeight="2dp"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_bar_style"
+            android:secondaryProgress="0"
+            android:splitTrack="false"
+            android:thumb="@null"
+            android:visibility="visible" />
+
+    </LinearLayout>
+</FrameLayout>

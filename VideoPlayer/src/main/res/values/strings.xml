@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" >YCVideoPlayerLib</string>
+    <string name="player_lock_tip">请先解锁屏幕！</string>
+    <string name="player_unlocked">已解锁</string>
+    <string name="player_locked">已锁定</string>
+    <string name="player_continue_play">继续播放</string>
+    <string name="player_error_message">出了点小故障</string>
+    <string name="player_retry">点击重试</string>
+    <string name="player_net_wifi_tip">您正在使用移动网络，继续播放将消耗流量</string>
+    <string name="player_default_time">00:00</string>
+    <string name="player_speed_play">倍速</string>
+    <string name="player_replay">重播</string>
+    <string name="player_guide_left_text">左边上下滑动控制亮度</string>
+    <string name="player_guide_middle_text">长按快进播放</string>
+    <string name="player_guide_right_text">左边上下滑动控制亮度</string>
+    <string name="player_guide_know">我知道了</string>
+    <string name="player_default_quality">超清</string>
+    <string name="player_loading_text">正在缓冲&#8230;</string>
+    <string name="player_cast_title">投屏中</string>
+    <string name="player_cast_fail_disconnect">与投屏断开连接，</string>
+    <string name="player_cast_reconnect">重新投屏</string>
+    <string name="player_cast_exit">退出投屏</string>
+    <string name="player_speed_current">%sX</string>
+
+</resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@drawable/shape_cast_bg">
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/tv_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重新搜索"
+                android:textColor="#2A2C2D"
+                android:textSize="13sp" />
+            <ImageView
+                android:id="@+id/iv_refresh"
+                android:layout_width="15dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/icon_cast_refresh"
+                android:layout_height="15dp"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_search"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="5dp"
+            android:text="选择设备后，当前视频将投屏到设备播放"
+            android:textColor="#ff818383"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/tv_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:drawableLeft="@mipmap/icon_cast_help"
+            android:drawablePadding="5dp"
+            android:text="投屏帮助"
+            android:textStyle="bold"
+            android:textColor="#2A2C2D"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="122.5dp"
+                android:layout_height="122.5dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_cast_device_empty" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:text="没有搜到投屏设备"
+                android:textColor="#2A2C2D"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_search_view"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-50dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/cast_search_data" />
+
+
+            <com.yc.ycvideoplayer.TextViewLoadSuffix
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="30dp"
+                android:gravity="left"
+                android:text="正在搜索设备"
+                android:textColor="#FF3140"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#E5E7E8"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#555656"
+        android:textSize="16sp" />
+
+</LinearLayout>
