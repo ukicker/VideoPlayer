@@ -17,6 +17,7 @@ package com.yc.video.config;
 
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -222,6 +223,7 @@ public class VideoPlayerConfig {
 
     private VideoPlayerConfig(Builder builder) {
         mIsEnableLog = builder.mIsEnableLog;
+
         mEnableOrientation = builder.mEnableOrientation;
         mPlayOnMobileNetwork = builder.mPlayOnMobileNetwork;
         mEnableAudioFocus = builder.mEnableAudioFocus;

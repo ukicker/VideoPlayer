@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.provider.Settings;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.OrientationEventListener;
 import android.view.View;
@@ -51,6 +52,8 @@ import java.util.Map;
 
 
 /**
+ *
+ *
  * <pre>
  *     @author yangchong
  *     blog  : https://github.com/yangchong211

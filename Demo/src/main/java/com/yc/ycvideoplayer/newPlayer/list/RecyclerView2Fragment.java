@@ -102,7 +102,7 @@ public class RecyclerView2Fragment extends Fragment {
     }
 
     protected void initVideoView() {
-        mVideoView = new VideoPlayer(context);
+        mVideoView = new VideoPlayer(requireActivity());
         mVideoView.setOnStateChangeListener(new SimpleStateListener() {
             @Override
             public void onPlayStateChanged(int playState) {
@@ -184,7 +184,7 @@ public class RecyclerView2Fragment extends Fragment {
         if (mVideoView.isFullScreen()) {
             mVideoView.stopFullScreen();
         }
-        if(Objects.requireNonNull(getActivity()).getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+        if(requireActivity().getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         mCurPos = -1;

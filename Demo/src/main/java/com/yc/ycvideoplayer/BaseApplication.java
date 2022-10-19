@@ -59,18 +59,16 @@ public class BaseApplication extends Application {
                 ScreenDensityUtils.MATCH_BASE_WIDTH,ScreenDensityUtils.MATCH_UNIT_DP);
         //播放器配置，注意：此为全局配置，按需开启
         PlayerFactory player = PlayerFactoryUtils.getPlayer(PlayerConstant.PlayerType.TYPE_EXO);
-        VideoViewManager.instance().setConfig(VideoPlayerConfig.newBuilder()
-                //设置上下文
+        VideoPlayerConfig config = VideoPlayerConfig.newBuilder()
                 .setContext(this)
-                //设置视频全局埋点事件
                 .setBuriedPointEvent(new BuriedPointEventImpl())
-                //调试的时候请打开日志，方便排错
+                .setPlayOnMobileNetwork(false)
                 .setLogEnabled(true)
-                //设置ijk
                 .setPlayerFactory(player)
-                //创建SurfaceView
                 //.setRenderViewFactory(SurfaceViewFactory.create())
-                .build());
+                .build();
+
+        VideoViewManager.instance().setConfig(config);
 
         initVideoCache();
     }

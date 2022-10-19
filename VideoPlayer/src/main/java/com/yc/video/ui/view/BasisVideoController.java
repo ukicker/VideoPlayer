@@ -59,7 +59,6 @@ public class BasisVideoController extends GestureVideoController implements View
     private CustomTitleView titleView;
     private CustomBottomView vodControlView;
     private CustomLiveControlView liveControlView;
-    private TextView tvLiveWaitMessage;
     /**
      * 是否是直播，默认不是
      */
@@ -75,6 +74,10 @@ public class BasisVideoController extends GestureVideoController implements View
 
     public BasisVideoController(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public boolean isLive() {
+        return isLive;
     }
 
     public void setLive(boolean live) {
@@ -398,8 +401,5 @@ public class BasisVideoController extends GestureVideoController implements View
     }
 
 
-    public TextView getTvLiveWaitMessage() {
-        return tvLiveWaitMessage;
-    }
 
 }

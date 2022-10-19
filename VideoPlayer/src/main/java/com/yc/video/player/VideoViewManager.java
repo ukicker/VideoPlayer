@@ -16,6 +16,7 @@ limitations under the License.
 package com.yc.video.player;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.yc.video.config.VideoPlayerConfig;
 import com.yc.video.kernel.utils.VideoLogUtils;
@@ -48,23 +49,31 @@ public class VideoViewManager {
     /**
      * VideoViewConfig实例
      */
-    private  VideoPlayerConfig sConfig;
+    private VideoPlayerConfig sConfig;
 
     private FloatVideoView mFloatVideoView;
 
     private VideoViewManager() {
+        setConfig(null);
         mPlayOnMobileNetwork = getConfig().mPlayOnMobileNetwork;
     }
 
     /**
      * 设置VideoViewConfig
      */
-    public  void setConfig(VideoPlayerConfig config) {
+    public void setConfig(VideoPlayerConfig config) {
+        if (config != null) {
+
+        }
         if (sConfig == null) {
             synchronized (VideoPlayerConfig.class) {
                 if (sConfig == null) {
                     sConfig = config == null ? VideoPlayerConfig.newBuilder().build() : config;
                 }
+            }
+        } else {
+            if (config != null) {
+                sConfig = config;
             }
         }
     }
@@ -72,8 +81,7 @@ public class VideoViewManager {
     /**
      * 获取VideoViewConfig
      */
-    public  VideoPlayerConfig getConfig() {
-        setConfig(null);
+    public VideoPlayerConfig getConfig() {
         return sConfig;
     }
 

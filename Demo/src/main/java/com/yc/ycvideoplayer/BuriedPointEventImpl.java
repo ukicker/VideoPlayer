@@ -45,23 +45,23 @@ public class BuriedPointEventImpl implements BuriedPointEvent {
         VideoLogUtils.i("BuriedPointEvent---视频播放异常--"+url);
     }
 
-    /**
-     * 点击了视频广告
-     * @param url                       视频url
-     */
-    @Override
-    public void clickAd(String url) {
-        VideoLogUtils.i("BuriedPointEvent---点击了视频广告--"+url);
-    }
-
-    /**
-     * 视频试看点击
-     * @param url                       视频url
-     */
-    @Override
-    public void playerAndProved(String url) {
-        VideoLogUtils.i("BuriedPointEvent---视频试看点击--"+url);
-    }
+//    /**
+//     * 点击了视频广告
+//     * @param url                       视频url
+//     */
+//    @Override
+//    public void clickAd(String url) {
+//        VideoLogUtils.i("BuriedPointEvent---点击了视频广告--"+url);
+//    }
+//
+//    /**
+//     * 视频试看点击
+//     * @param url                       视频url
+//     */
+//    @Override
+//    public void playerAndProved(String url) {
+//        VideoLogUtils.i("BuriedPointEvent---视频试看点击--"+url);
+//    }
 
     /**
      * 退出视频播放时候的播放进度百度比

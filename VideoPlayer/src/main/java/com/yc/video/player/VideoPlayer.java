@@ -29,6 +29,7 @@ import androidx.annotation.Nullable;
 
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -132,7 +133,6 @@ public class VideoPlayer<P extends AbstractVideoPlayer> extends FrameLayout
     protected boolean mEnableAudioFocus;
     @Nullable
     protected AudioFocusHelper mAudioFocusHelper;
-
     /**
      * OnStateChangeListener集合，保存了所有开发者设置的监听器
      */
@@ -178,7 +178,7 @@ public class VideoPlayer<P extends AbstractVideoPlayer> extends FrameLayout
     }
 
     private void initConfig() {
-        VideoPlayerConfig config = VideoViewManager.instance().instance().getConfig();
+        VideoPlayerConfig config = VideoViewManager.instance().getConfig();
         mEnableAudioFocus = config.mEnableAudioFocus;
         mProgressManager = config.mProgressManager;
         mPlayerFactory = config.mPlayerFactory;

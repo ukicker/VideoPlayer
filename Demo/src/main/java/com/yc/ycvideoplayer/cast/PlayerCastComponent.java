@@ -118,7 +118,7 @@ public class PlayerCastComponent extends FrameLayout implements InterControlView
             }, 300);
             VideoPlayerConfig config = VideoViewManager.instance().getConfig();
             if (config != null && config.mBuriedPointEvent != null) {
-                config.mBuriedPointEvent.onCast(mControlWrapper.getUrl());
+//                config.mBuriedPointEvent.onCast(mControlWrapper.getUrl());
             }
         }
     }

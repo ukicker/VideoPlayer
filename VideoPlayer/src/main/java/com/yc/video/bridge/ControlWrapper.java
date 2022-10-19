@@ -44,6 +44,10 @@ public class ControlWrapper implements InterVideoPlayer, InterVideoController {
         mController = controller;
     }
 
+    public InterVideoPlayer getVideoPlayer() {
+        return mVideoPlayer;
+    }
+
     @Override
     public void setUrl(String url) {
         mVideoPlayer.setUrl(url);
