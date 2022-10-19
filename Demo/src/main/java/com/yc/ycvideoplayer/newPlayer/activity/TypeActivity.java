@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,8 @@ import com.yc.video.kernel.impl.ijk.IjkVideoPlayer;
 import com.yc.video.kernel.impl.media.AndroidMediaPlayer;
 import com.yc.video.kernel.impl.media.MediaPlayerFactory;
 import com.yc.video.kernel.utils.VideoLogUtils;
+import com.yc.video.tool.PlayerSpUtil;
+import com.yc.ycvideoplayer.BaseApplication;
 import com.yc.ycvideoplayer.newPlayer.ad.AdActivity;
 import com.yc.ycvideoplayer.newPlayer.clarity.ClarityActivity;
 import com.yc.ycvideoplayer.newPlayer.danmu.DanmuActivity;
@@ -45,6 +49,7 @@ import java.lang.reflect.Field;
 
 public class TypeActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private CheckBox mCheckBox;
     private Toolbar mToolbar;
     private TextView mTvTitle;
     private TextView mTv11;
@@ -79,6 +84,17 @@ public class TypeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_new);
         initFindViewById();
         initListener();
+        boolean isPay = (boolean) PlayerSpUtil.get(TypeActivity.this, "wifi_pay", false);
+
+        mCheckBox.setChecked(isPay);
+        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                PlayerSpUtil.put(TypeActivity.this, "wifi_pay", isChecked);
+                BaseApplication.getInstance().initPlayer(isChecked);
+            }
+        });
+
 
         //检测当前是用的哪个播放器
         Object factory = PlayerUtils.getCurrentPlayerFactory();
@@ -93,18 +109,21 @@ public class TypeActivity extends AppCompatActivity implements View.OnClickListe
             mTvTitle.setText("视频内核：" + " (unknown)");
         }
 
-        String[] p =new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-        VideoLogUtils.d("ukicker_player:"+checkSelfPermission("Manifest.permission_group.STORAGE"));
+        String[] p = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        VideoLogUtils.d("ukicker_player:" + checkSelfPermission("Manifest.permission_group.STORAGE"));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(p,123);
+            requestPermissions(p, 123);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        VideoLogUtils.d("requestCode:"+requestCode+"/"+permissions.toString());
+        VideoLogUtils.d("requestCode:" + requestCode + "/" + permissions.toString());
     }
+
     private void initFindViewById() {
+        mCheckBox = findViewById(R.id.cb_check);
         mToolbar = findViewById(R.id.toolbar);
         mTvTitle = findViewById(R.id.tv_title);
         mTv11 = findViewById(R.id.tv_1_1);
@@ -160,72 +179,72 @@ public class TypeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v == mTv11){
+        if (v == mTv11) {
             //切换ijk
             setChangeVideoType(ConstantKeys.VideoPlayerType.TYPE_IJK);
-        } else if (v == mTv12){
+        } else if (v == mTv12) {
             //切换exo
             setChangeVideoType(ConstantKeys.VideoPlayerType.TYPE_EXO);
-        } else if (v == mTv13){
+        } else if (v == mTv13) {
             //切换原生
             setChangeVideoType(ConstantKeys.VideoPlayerType.TYPE_NATIVE);
-        } else if (v == mTv21){
+        } else if (v == mTv21) {
             BaseToast.showRoundRectToast("待完善");
-        } else if (v == mTv22){
+        } else if (v == mTv22) {
             BaseToast.showRoundRectToast("待完善");
-        } else if (v == mTv23){
+        } else if (v == mTv23) {
             BaseToast.showRoundRectToast("待完善");
-        } else if (v == mTv31){
-            startActivity(new Intent(this,NormalActivity.class));
-        } else if (v == mTv32){
+        } else if (v == mTv31) {
+            startActivity(new Intent(this, NormalActivity.class));
+        } else if (v == mTv32) {
             startActivity(new Intent(this, TestFullActivity.class));
-        } else if (v == mTv33){
-            startActivity(new Intent(this,MultipleActivity.class));
-        } else if (v == mTv41){
+        } else if (v == mTv33) {
+            startActivity(new Intent(this, MultipleActivity.class));
+        } else if (v == mTv41) {
             startActivity(new Intent(this, PipActivity.class));
-        } else if (v == mTv42){
+        } else if (v == mTv42) {
             startActivity(new Intent(this, PipListActivity.class));
-        }   else if (v == mTv43){
+        } else if (v == mTv43) {
             startActivity(new Intent(this, TinyScreenActivity.class));
-        } else if (v == mTv61){
+        } else if (v == mTv61) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",0);
+            intent.putExtra("type", 0);
             startActivity(intent);
-        } else if (v == mTv62){
+        } else if (v == mTv62) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",1);
+            intent.putExtra("type", 1);
             startActivity(intent);
-        } else if (v == mTv63){
+        } else if (v == mTv63) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",2);
+            intent.putExtra("type", 2);
             startActivity(intent);
-        } else if (v == mTv64){
+        } else if (v == mTv64) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",3);
+            intent.putExtra("type", 3);
             startActivity(intent);
-        } else if (v == mTv65){
+        } else if (v == mTv65) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",4);
+            intent.putExtra("type", 4);
             startActivity(intent);
-        } else if (v == mTv66){
+        } else if (v == mTv66) {
             Intent intent = new Intent(this, TestListActivity.class);
-            intent.putExtra("type",5);
+            intent.putExtra("type", 5);
             startActivity(intent);
-        } else if (v == mTv71){
+        } else if (v == mTv71) {
             startActivity(new Intent(this, DanmuActivity.class));
-        } else if (v == mTv81){
+        } else if (v == mTv81) {
             startActivity(new Intent(this, AdActivity.class));
-        } else if (v == mTv101){
+        } else if (v == mTv101) {
             startActivity(new Intent(this, ContinuousVideoActivity.class));
-        } else if (v == mTv111){
+        } else if (v == mTv111) {
             startActivity(new Intent(this, ClarityActivity.class));
-        } else if (v == mTv131){
+        } else if (v == mTv131) {
             startActivity(new Intent(this, TestSurfaceActivity.class));
         }
     }
 
     @SuppressLint("SetTextI18n")
-    private void setChangeVideoType(@ConstantKeys.PlayerType int type){
+    private void setChangeVideoType(@ConstantKeys.PlayerType int type) {
         //切换播放核心，不推荐这么做，我这么写只是为了方便测试
         VideoPlayerConfig config = VideoViewManager.instance().getConfig();
         try {

@@ -186,6 +186,7 @@ public class VideoPlayer<P extends AbstractVideoPlayer> extends FrameLayout
         mRenderViewFactory = config.mRenderViewFactory;
         //设置是否打印日志
         VideoLogUtils.setIsLog(config.mIsEnableLog);
+
     }
 
     /**

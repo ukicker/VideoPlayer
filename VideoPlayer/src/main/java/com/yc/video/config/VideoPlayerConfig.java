@@ -208,7 +208,7 @@ public class VideoPlayerConfig {
     }
 
     public final Context mContext;
-    public final boolean mPlayOnMobileNetwork;
+    public  boolean mPlayOnMobileNetwork;
     public final boolean mEnableOrientation;
     public final boolean mEnableAudioFocus;
     public final boolean mIsEnableLog;
@@ -252,4 +252,7 @@ public class VideoPlayerConfig {
     }
 
 
+    public void setPlayOnMobileNetwork(boolean playOnMobileNetwork) {
+        mPlayOnMobileNetwork = playOnMobileNetwork;
+    }
 }

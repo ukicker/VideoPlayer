@@ -36,10 +36,6 @@ public class VideoViewManager {
      */
     private LinkedHashMap<String, VideoPlayer> mVideoViews = new LinkedHashMap<>();
 
-    /**
-     * 是否在移动网络下直接播放视频
-     */
-    private boolean mPlayOnMobileNetwork;
 
     /**
      * VideoViewManager实例
@@ -54,17 +50,15 @@ public class VideoViewManager {
     private FloatVideoView mFloatVideoView;
 
     private VideoViewManager() {
-        setConfig(null);
-        mPlayOnMobileNetwork = getConfig().mPlayOnMobileNetwork;
+        if (sConfig==null){
+            setConfig(null);
+        }
     }
 
     /**
      * 设置VideoViewConfig
      */
     public void setConfig(VideoPlayerConfig config) {
-        if (config != null) {
-
-        }
         if (sConfig == null) {
             synchronized (VideoPlayerConfig.class) {
                 if (sConfig == null) {
@@ -89,14 +83,14 @@ public class VideoViewManager {
      * 获取是否在移动网络下直接播放视频配置
      */
     public boolean playOnMobileNetwork() {
-        return mPlayOnMobileNetwork;
+        return getConfig().mPlayOnMobileNetwork;
     }
 
     /**
      * 设置是否在移动网络下直接播放视频
      */
     public void setPlayOnMobileNetwork(boolean playOnMobileNetwork) {
-        mPlayOnMobileNetwork = playOnMobileNetwork;
+        getConfig().setPlayOnMobileNetwork(playOnMobileNetwork);
     }
 
     public static VideoViewManager instance() {

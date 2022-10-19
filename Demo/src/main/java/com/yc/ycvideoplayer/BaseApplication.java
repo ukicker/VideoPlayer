@@ -11,9 +11,13 @@ import com.yc.video.config.VideoPlayerConfig;
 import com.yc.video.kernel.factory.PlayerFactory;
 import com.yc.video.kernel.utils.PlayerConstant;
 import com.yc.video.kernel.utils.PlayerFactoryUtils;
+import com.yc.video.kernel.utils.VideoLogUtils;
 import com.yc.video.player.VideoViewManager;
+import com.yc.video.tool.PlayerSpUtil;
+import com.yc.video.tool.PlayerUtils;
 import com.yc.videosqllite.manager.CacheConfig;
 import com.yc.videosqllite.manager.LocationManager;
+import com.yc.ycvideoplayer.newPlayer.activity.TypeActivity;
 
 /**
  * ================================================
@@ -58,19 +62,27 @@ public class BaseApplication extends Application {
         ScreenDensityUtils.register(this,375.0f,
                 ScreenDensityUtils.MATCH_BASE_WIDTH,ScreenDensityUtils.MATCH_UNIT_DP);
         //播放器配置，注意：此为全局配置，按需开启
+        boolean isPay = (boolean) PlayerSpUtil.get(this, "wifi_pay", false);
+        initPlayer(isPay);
+
+
+        initVideoCache();
+    }
+
+    public void initPlayer(boolean play){
+//        VideoLogUtils.setIsLog(true);
         PlayerFactory player = PlayerFactoryUtils.getPlayer(PlayerConstant.PlayerType.TYPE_EXO);
         VideoPlayerConfig config = VideoPlayerConfig.newBuilder()
                 .setContext(this)
                 .setBuriedPointEvent(new BuriedPointEventImpl())
-                .setPlayOnMobileNetwork(false)
+                .setPlayOnMobileNetwork(play)
                 .setLogEnabled(true)
                 .setPlayerFactory(player)
                 //.setRenderViewFactory(SurfaceViewFactory.create())
                 .build();
-
         VideoViewManager.instance().setConfig(config);
 
-        initVideoCache();
+
     }
 
     private void initVideoCache() {
