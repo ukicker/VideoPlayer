@@ -65,13 +65,9 @@ public abstract class GestureVideoController extends BaseVideoController impleme
      */
     private boolean mCanChangePosition = true;
     /**
-     * 是否在竖屏模式下开始手势控制
-     */
-    private boolean mEnableInNormal;
-    /**
      * 是否关闭了滑动手势
      */
-    private boolean mCanSlide;
+    private boolean mCanSlide =true;
     /**
      * 播放状态
      */
@@ -102,6 +98,10 @@ public abstract class GestureVideoController extends BaseVideoController impleme
         setOnTouchListener(this);
     }
 
+    /**
+     * 默认可以
+     * @param canSlide
+     */
     public void setCanSlide(boolean canSlide) {
         mCanSlide = canSlide;
     }
@@ -111,13 +111,6 @@ public abstract class GestureVideoController extends BaseVideoController impleme
      */
     public void setCanChangePosition(boolean canChangePosition) {
         mCanChangePosition = canChangePosition;
-    }
-
-    /**
-     * 是否在竖屏模式下开始手势控制，默认关闭
-     */
-    public void setEnableInNormal(boolean enableInNormal) {
-        mEnableInNormal = enableInNormal;
     }
 
     /**
@@ -136,7 +129,7 @@ public abstract class GestureVideoController extends BaseVideoController impleme
     public void setPlayerState(int playerState) {
         super.setPlayerState(playerState);
         if (playerState == ConstantKeys.PlayMode.MODE_NORMAL) {
-            mCanSlide = mEnableInNormal;
+            mCanSlide = true;//可以在此控制竖屏
         } else if (playerState == ConstantKeys.PlayMode.MODE_FULL_SCREEN) {
             mCanSlide = true;
         }
@@ -225,7 +218,7 @@ public abstract class GestureVideoController extends BaseVideoController impleme
      */
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        VideoLogUtils.e("事件----------事件onScroll----------"+mIsGestureEnabled+"/"+mCanSlide);
+        VideoLogUtils.e("事件----------onScroll----------"+mIsGestureEnabled+"/"+mCanSlide);
 
         if (!isInPlaybackState() //不处于播放状态
                 || !mIsGestureEnabled //关闭了手势

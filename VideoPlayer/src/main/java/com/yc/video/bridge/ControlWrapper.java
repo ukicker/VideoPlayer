@@ -267,12 +267,6 @@ public class ControlWrapper implements InterVideoPlayer, InterVideoController {
     }
 
     @Override
-    public void setGesture(boolean enable) {
-        mController.setGesture(enable);
-    }
-
-
-    @Override
     public boolean isLocked() {
         return mController.isLocked();
     }

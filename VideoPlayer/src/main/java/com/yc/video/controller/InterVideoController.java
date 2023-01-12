@@ -53,13 +53,6 @@ public interface InterVideoController {
     void setLocked(boolean locked);
 
     /**
-     * 设置是否支持手势
-     * @param enable
-     */
-    void setGesture(boolean enable);
-
-
-    /**
      * 是否处于锁定状态
      */
     boolean isLocked();

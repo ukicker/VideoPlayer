@@ -131,8 +131,6 @@ public class BasisVideoController extends GestureVideoController implements View
         setEnableOrientation(true);
         //设置可以滑动调节进度
         setCanChangePosition(true);
-        //竖屏也开启手势操作，默认关闭
-        setEnableInNormal(true);
         //滑动调节亮度，音量，进度，默认开启
         setGestureEnabled(true);
         //先移除多有的视图view
@@ -373,11 +371,6 @@ public class BasisVideoController extends GestureVideoController implements View
     @Override
     protected void setProgress(int duration, int position) {
         super.setProgress(duration, position);
-    }
-
-    @Override
-    public void setGesture(boolean enable) {
-        setCanSlide(enable);
     }
 
 

@@ -55,10 +55,6 @@ public class CustomFloatController extends GestureVideoController {
         addControlComponent(new CustomFloatView(getContext()));
     }
 
-    @Override
-    public void setGesture(boolean enable) {
-
-    }
 
     @Override
     public void destroy() {
