@@ -15,7 +15,10 @@ limitations under the License.
 */
 package com.yc.video.controller;
 
+import com.yc.video.bridge.ControlWrapper;
 import com.yc.video.ui.view.InterControlView;
+
+import java.util.LinkedHashMap;
 
 /**
  * <pre>
@@ -56,8 +59,6 @@ public interface InterVideoController {
     void setGesture(boolean enable);
 
 
-
-
     /**
      * 是否处于锁定状态
      */
@@ -88,6 +89,21 @@ public interface InterVideoController {
      */
     boolean hasCutout();
 
+
+    /**
+     * 获取控制器
+     * @return
+     */
+    ControlWrapper getControlWrapper();
+
+
+    /**
+     * 获取播放器组件
+     * @return
+     */
+    LinkedHashMap<InterControlView, Boolean> getControlComponents();
+
+
     /**
      * 获取刘海的高度
      */
@@ -97,4 +113,6 @@ public interface InterVideoController {
      * 控制器意外销毁，比如手动退出，意外崩溃等等
      */
     void destroy();
+
+
 }

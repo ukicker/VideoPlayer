@@ -225,6 +225,8 @@ public abstract class GestureVideoController extends BaseVideoController impleme
      */
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        VideoLogUtils.e("事件----------事件onScroll----------"+mIsGestureEnabled+"/"+mCanSlide);
+
         if (!isInPlaybackState() //不处于播放状态
                 || !mIsGestureEnabled //关闭了手势
                 || !mCanSlide //关闭了滑动手势
@@ -387,7 +389,7 @@ public abstract class GestureVideoController extends BaseVideoController impleme
 
     @Override
     public void onLongPress(MotionEvent e) {
-        VideoLogUtils.e("/" + isLocked() + "/" + isInPlaybackState() + "/" + mIsGestureEnabled);
+        VideoLogUtils.e("onLongPress/" + isLocked() + "/" + isInPlaybackState() + "/" + mIsGestureEnabled);
         if (!isLocked()// 不锁住了屏幕
                 && mControlWrapper.isPlaying()//处于播放状态
                 && !PlayerUtils.isEdge(getContext(), e)// 安全区域

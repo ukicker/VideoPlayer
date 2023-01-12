@@ -764,8 +764,15 @@ public abstract class BaseVideoController extends FrameLayout implements InterVi
 
     }
 
+    @Override
+    public ControlWrapper getControlWrapper() {
+        return mControlWrapper;
+    }
 
-
+    @Override
+    public LinkedHashMap<InterControlView, Boolean> getControlComponents() {
+        return mControlComponents;
+    }
 
     //------------------------ end handle event change ------------------------//
 }

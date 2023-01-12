@@ -23,6 +23,8 @@ import com.yc.video.controller.InterVideoController;
 import com.yc.video.player.InterVideoPlayer;
 import com.yc.video.ui.view.InterControlView;
 
+import java.util.LinkedHashMap;
+
 
 /**
  * <pre>
@@ -298,6 +300,16 @@ public class ControlWrapper implements InterVideoPlayer, InterVideoController {
     @Override
     public boolean hasCutout() {
         return mController.hasCutout();
+    }
+
+    @Override
+    public ControlWrapper getControlWrapper() {
+        return this;
+    }
+
+    @Override
+    public LinkedHashMap<InterControlView, Boolean> getControlComponents() {
+        return mController.getControlComponents();
     }
 
     @Override
